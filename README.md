@@ -1,3 +1,3 @@
 # camel-integration
 Utilizado o MongoDB  
-Repositórios para poc de integração do camel com ActiveMQ/kafka
+Repositórios para poc de integração do camel com ActiveMQ/kafka/Rest Api
