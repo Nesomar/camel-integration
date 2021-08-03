@@ -21,14 +21,16 @@ public class ArquivoService {
 	@Autowired
 	private ArquivoProducer producer;
 	
-	@Value("${activemq.destination}")
+	@Value("${activemq.arquivos.solicitatos.destination}")
     private String destination;
 	
 	public ArquivoModel save(ArquivoModel model) {
 		
 		ArquivoModel arquivoModel = ArquivoMapper.toModel(repository.save(ArquivoMapper.toEntity(model)));
 		
-		producer.sendTo(destination, arquivoModel);
+		if("AGUARDANDO_PROCESSAMENTO".equalsIgnoreCase(arquivoModel.getStatus())) {
+			producer.sendTo(destination, arquivoModel);
+		}
 		
 		return arquivoModel;
 	}

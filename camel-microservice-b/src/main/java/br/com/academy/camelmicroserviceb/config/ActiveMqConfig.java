@@ -1,4 +1,4 @@
-package br.com.academy.camelmicroservicea.config;
+package br.com.academy.camelmicroserviceb.config;
 
 import javax.jms.ConnectionFactory;
 
